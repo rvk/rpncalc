@@ -11,8 +11,11 @@
     <string id="MenuDivide">÷</string>
     <string id="MenuSqrt">Square root</string>
     <string id="MenuPower">Power</string>
-    <string id="MenuLog10">Log (base 10)</string>
-    <string id="MenuLog">Log (base last input)</string>
+    <string id="MenuE">e</string>
+    <string id="MenuLogarithm">Logarithms</string>
+    <string id="MenuLog10">Base 10 logarithm</string>
+    <string id="MenuLogN">Natural logarithm</string>
+    <string id="MenuLog">2 op, base last input</string>
     <string id="MenuExit">Exit</string>
     <string id="MenuAngle">Angle mode</string>
     <string id="MenuDegrees">Degrees</string>

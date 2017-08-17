@@ -70,7 +70,6 @@ class CalculatorView extends Ui.View {
     	}
     	
     	var tmpStr = number.format("%19.6f");
-    	System.println("formatting " + number + " from " + tmpStr);
     	var chrs = tmpStr.toCharArray();
     	var lastNonZero = -1;
     	for (var i = 0; i < chrs.size(); i += 1) {

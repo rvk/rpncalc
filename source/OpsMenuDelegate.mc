@@ -42,11 +42,21 @@ class OpsMenuDelegate extends Ui.MenuInputDelegate {
 		} else if (item == :power) {
 			tmp = view.pop();
 			view.push(Math.pow(tmp, view.pop()));
+		} else if (item == :e) {
+			view.push(Math.E);
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :logarithm) {
+			Ui.pushView(new Rez.Menus.LogarithmMenu(), self, Ui.SLIDE_IMMEDIATE);
 		} else if (item == :log) {
 			tmp = view.pop();
-			view.push(Math.log(tmp, view.pop()));
+			view.push(Math.log(view.pop(), tmp));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
 		} else if (item == :log10) {
 			view.push(Math.log(view.pop(), 10));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :logn) {
+			view.push(Math.log(view.pop(), Math.E));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
 		} else if (item == :trigonometry) {
 			Ui.pushView(new Rez.Menus.TrigonometryMenu(), self, Ui.SLIDE_IMMEDIATE);
 		} else if (item == :pi) {
