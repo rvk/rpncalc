@@ -65,9 +65,12 @@ class CalculatorView extends Ui.View {
     }
     
     function format(number) {
+    	if (number instanceof Number) {
+    		return number;
+    	}
     	var asLong = Math.round(number * 1000000).toLong();
-    	var intPart = asLong / 1000000;
-    	var fracPart = asLong % 1000000;
+    	var intPart = number.toLong();
+    	var fracPart = asLong.abs() % 1000000;
     	var fracStr = fracPart.format("%06d");
     	var fracChrs = fracStr.toCharArray();
     	var lastNonZero = -1;
@@ -82,37 +85,23 @@ class CalculatorView extends Ui.View {
     		return intPart.toString() + "." + fracStr.substring(0, lastNonZero + 1);
     	}	
     }
- /*   
-    function format(number) {
-    	var intPart = number.toLong().toDouble();
-    	if (intPart.equals(number)) {
-    		return intPart.toLong().toString();
-    	}
-    	var tmpStr = number.format("%19.7f");
-    	var chars = tmpStr.toCharArray();
-    	var firstNumber = -1;
-    	var lastNonZero = 0;
-    	for (var i = 0; i < chars.size(); i += 1) {
-    		if (firstNumber == -1 && !chars[i].equals(' ')) {
-    			firstNumber = i;
-    		}
-    		if (!chars[i].equals('0')) {
-    			lastNonZero = i;
-    		}
-    	}	
-    	System.println("lastNonZero idx for " + tmpStr + " is " + lastNonZero + " and first is " + firstNumber);
-		return tmpStr.substring(firstNumber, lastNonZero + 1);
-	} */
-	
+
     function addInputToStack() {
     	if (inputActive) {
 			var str = "";
-		
+			var pureInteger = true;
 			for (var i = 0; i < input.size(); i += 1) {
+				if (input[i].equals(".")) {
+					pureInteger = false;
+				}
 				str = str + input[i];
 			}
 			str = str + current;
-			addValueToStack(str.toFloat()); // String.toDouble() doesn't exist
+			if (pureInteger) {
+				addValueToStack(str.toNumber().toLong()); // String.toLong() doesn't exist
+			} else {
+				addValueToStack(str.toFloat().toDouble()); // String.toDouble() doesn't exist
+			}
 			input = [];
 			current = 0;
 			inputActive = false;

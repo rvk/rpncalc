@@ -35,7 +35,7 @@ class OpsMenuDelegate extends Ui.MenuInputDelegate {
 		} else if (item == :divide) {
 			tmp = view.pop();
 			if (tmp != 0) {
-				view.push(view.pop() / tmp);
+				view.push(view.pop().toDouble() / tmp);
 			}
 		} else if (item == :trigonometry) {
 			Ui.pushView(new Rez.Menus.TrigonometryMenu(), self, Ui.SLIDE_IMMEDIATE);
