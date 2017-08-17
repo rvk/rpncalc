@@ -37,6 +37,16 @@ class OpsMenuDelegate extends Ui.MenuInputDelegate {
 			if (tmp != 0) {
 				view.push(view.pop().toDouble() / tmp);
 			}
+		} else if (item == :sqrt) {
+			view.push(Math.sqrt(view.pop()));
+		} else if (item == :power) {
+			tmp = view.pop();
+			view.push(Math.pow(tmp, view.pop()));
+		} else if (item == :log) {
+			tmp = view.pop();
+			view.push(Math.log(tmp, view.pop()));
+		} else if (item == :log10) {
+			view.push(Math.log(view.pop(), 10));
 		} else if (item == :trigonometry) {
 			Ui.pushView(new Rez.Menus.TrigonometryMenu(), self, Ui.SLIDE_IMMEDIATE);
 		} else if (item == :pi) {
