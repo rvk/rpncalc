@@ -37,7 +37,7 @@ class CalculatorView extends Ui.View {
         	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
         }
         for (var i = 0; i < stack.size() && i < 5; i += 1) {
-        	dc.drawText(196, 128 - numberHeight * i + inputOffset, Gfx.FONT_TINY, stack[i], Gfx.TEXT_JUSTIFY_RIGHT);
+        	dc.drawText(196, 128 - numberHeight * i + inputOffset, Gfx.FONT_TINY, format(stack[i]), Gfx.TEXT_JUSTIFY_RIGHT);
         }
         
         
@@ -52,6 +52,46 @@ class CalculatorView extends Ui.View {
     function onHide() {
     }
     
+    function format(number) {
+    	var asLong = Math.round(number * 1000000).toLong();
+    	var intPart = asLong / 1000000;
+    	var fracPart = asLong % 1000000;
+    	var fracStr = fracPart.format("%06d");
+    	var fracChrs = fracStr.toCharArray();
+    	var lastNonZero = -1;
+    	for (var i = 0; i < fracChrs.size(); i += 1) {
+    		if (!fracChrs[i].equals('0')) {
+    			lastNonZero = i;
+    		}
+    	}
+    	if (lastNonZero == -1) {
+    		return intPart.toString();
+    	} else {
+    		return intPart.toString() + "." + fracStr.substring(0, lastNonZero + 1);
+    	}	
+    }
+ /*   
+    function format(number) {
+    	var intPart = number.toLong().toDouble();
+    	if (intPart.equals(number)) {
+    		return intPart.toLong().toString();
+    	}
+    	var tmpStr = number.format("%19.7f");
+    	var chars = tmpStr.toCharArray();
+    	var firstNumber = -1;
+    	var lastNonZero = 0;
+    	for (var i = 0; i < chars.size(); i += 1) {
+    		if (firstNumber == -1 && !chars[i].equals(' ')) {
+    			firstNumber = i;
+    		}
+    		if (!chars[i].equals('0')) {
+    			lastNonZero = i;
+    		}
+    	}	
+    	System.println("lastNonZero idx for " + tmpStr + " is " + lastNonZero + " and first is " + firstNumber);
+		return tmpStr.substring(firstNumber, lastNonZero + 1);
+	} */
+	
     function addInputToStack() {
     	if (inputActive) {
 			var str = "";
@@ -60,7 +100,7 @@ class CalculatorView extends Ui.View {
 				str = str + input[i];
 			}
 			str = str + current;
-			addValueToStack(str.toFloat());
+			addValueToStack(str.toFloat()); // String.toDouble() doesn't exist
 			input = [];
 			current = 0;
 			inputActive = false;
