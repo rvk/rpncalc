@@ -11,8 +11,7 @@ class CalculatorDelegate extends Ui.BehaviorDelegate {
 	}
 	
 	function onMenu() {
-		//Ui.pushView(new Rez.Menus.MainMenu(), new MainMenuDelegate(view), Ui.SLIDE_IMMEDIATE);
-		Ui.popView(Ui.SLIDE_IMMEDIATE);
+		Ui.pushView(new Rez.Menus.MainMenu(), new MainMenuDelegate(view), Ui.SLIDE_IMMEDIATE);
 	}
 
 	function onSelect() {

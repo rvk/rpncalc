@@ -37,6 +37,49 @@ class OpsMenuDelegate extends Ui.MenuInputDelegate {
 			if (tmp != 0) {
 				view.push(view.pop() / tmp);
 			}
+		} else if (item == :trigonometry) {
+			Ui.pushView(new Rez.Menus.TrigonometryMenu(), self, Ui.SLIDE_IMMEDIATE);
+		} else if (item == :pi) {
+			view.addValueToStack(Math.PI);
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :sin) {
+			view.push(Math.sin(toRadians(view.pop())));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :cos) {
+			view.push(Math.cos(toRadians(view.pop())));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :tan) {
+			view.push(Math.tan(toRadians(view.pop())));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :asin) {
+		    view.push(fromRadians(Math.asin(view.pop())));
+		    Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :acos) {
+		    view.push(fromRadians(Math.acos(view.pop())));
+		    Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :atan) {
+		    view.push(fromRadians(Math.atan(view.pop())));
+		    Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :degrad) {
+			view.push(Math.toRadians(view.pop()));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
+		} else if (item == :raddeg) {
+			view.push(Math.toDegrees(view.pop()));
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
 		}
+	}
+	
+	function toRadians(angle) {
+		if (view.angleMode.equals("RAD")) {
+			return angle;
+		}
+		return Math.toRadians(angle);
+	}
+	
+	function fromRadians(angle) {
+		if (view.angleMode.equals("RAD")) {
+			return angle;
+		}
+		return Math.toDegrees(angle);
 	}
 }

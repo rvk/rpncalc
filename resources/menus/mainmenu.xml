@@ -1,0 +1,4 @@
+<menu id="MainMenu">
+	<menu-item id="exit">@Strings.MenuExit</menu-item>
+	<menu-item id="angle">@Strings.MenuAngle</menu-item>
+</menu>

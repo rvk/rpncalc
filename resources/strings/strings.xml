@@ -10,4 +10,17 @@
     <string id="MenuMultiply">*</string>
     <string id="MenuDivide">/</string>
     <string id="MenuExit">exit</string>
+    <string id="MenuAngle">angle mode</string>
+    <string id="MenuDegrees">degrees</string>
+    <string id="MenuRadians">radians</string>
+    <string id="MenuTrigonometry">trigonometry</string>
+    <string id="MenuPi">Π</string>
+    <string id="MenuSin">sin</string>
+    <string id="MenuCos">cos</string>
+    <string id="MenuTan">tan</string>
+    <string id="MenuASin">asin</string>
+    <string id="MenuACos">acos</string>
+	<string id="MenuATan">atan</string>
+	<string id="MenuDegRad">deg -> rad</string>
+	<string id="MenuRadDeg">rad -> deg</string>
 </strings>

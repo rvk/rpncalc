@@ -11,10 +11,21 @@ class CalculatorView extends Ui.View {
     	var current = 0;
     	var inputActive = true;
     	
+    	var angleMode;
+    	
     function initialize() {
+    	angleMode = Application.getApp().getProperty("angleMode");
+    	if (angleMode == null) {
+    		setAngleMode("DEG");
+    	}
         View.initialize();
     }
 
+	function setAngleMode(angleMode) {
+		Application.getApp().setProperty("angleMode", angleMode);
+		self.angleMode = angleMode;
+	}
+	
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
@@ -26,6 +37,7 @@ class CalculatorView extends Ui.View {
 		// Draw stack
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
         dc.clear();
+        dc.drawText(109, 10, Gfx.FONT_XTINY, angleMode, Gfx.TEXT_JUSTIFY_CENTER);
         var inputOffset = numberHeight;
         if (inputActive) {
         	inputOffset = 0;
