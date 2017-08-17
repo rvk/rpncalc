@@ -34,22 +34,22 @@ class CalculatorView extends Ui.View {
 
     // Update the view
     function onUpdate(dc) {
-		// Draw stack
+		var right = (dc.getWidth() - 174) / 2 + 174;
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
         dc.clear();
-        dc.drawText(109, 10, Gfx.FONT_XTINY, angleMode, Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(dc.getWidth() / 2, 10, Gfx.FONT_XTINY, angleMode, Gfx.TEXT_JUSTIFY_CENTER);
         var inputOffset = numberHeight;
         if (inputActive) {
         	inputOffset = 0;
         	for (var i = 0; i < input.size(); i += 1) {
-        		dc.drawText(196 - input.size() * numberWidth + numberWidth * i, 150, Gfx.FONT_TINY, input[i], Gfx.TEXT_JUSTIFY_RIGHT);
+        		dc.drawText(right - input.size() * numberWidth + numberWidth * i, 150, Gfx.FONT_TINY, input[i], Gfx.TEXT_JUSTIFY_RIGHT);
         	}
         	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
-        	dc.drawText(196, 150, Gfx.FONT_TINY, current, Gfx.TEXT_JUSTIFY_RIGHT);
+        	dc.drawText(right, 150, Gfx.FONT_TINY, current, Gfx.TEXT_JUSTIFY_RIGHT);
         	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
         }
         for (var i = 0; i < stack.size() && i < 5; i += 1) {
-        	dc.drawText(196, 128 - numberHeight * i + inputOffset, Gfx.FONT_TINY, format(stack[i]), Gfx.TEXT_JUSTIFY_RIGHT);
+        	dc.drawText(right, 128 - numberHeight * i + inputOffset, Gfx.FONT_TINY, format(stack[i]), Gfx.TEXT_JUSTIFY_RIGHT);
         }
         
         

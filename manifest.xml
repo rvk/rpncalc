@@ -2,6 +2,11 @@
     <iq:application entry="RpnCalcApp" id="73f24a28253447d1b80e637756a21b98" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="1.2.0" name="@Strings.AppName" type="widget">
         <iq:products>
             <iq:product id="fenix3"/>
+            <iq:product id="fenix5x"/>
+            <iq:product id="fenix5"/>
+            <iq:product id="fenix5s"/>
+            <iq:product id="fenixchronos"/>
+            <iq:product id="fenix3_hr"/>
         </iq:products>
         <iq:permissions/>
         <iq:languages>
