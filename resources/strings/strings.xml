@@ -1,0 +1,13 @@
+<strings>
+    <string id="AppName">RpnCalc</string>
+    <string id="StartPrompt">RPN Calculator\nPress START</string>
+    <string id="MenuEnter">enter</string>
+    <string id="MenuClear">clear</string>
+    <string id="MenuSwap">swap</string>
+    <string id="MenuInvert">+ / -</string>
+    <string id="MenuAdd">+</string>
+    <string id="MenuSubtract">-</string>
+    <string id="MenuMultiply">*</string>
+    <string id="MenuDivide">/</string>
+    <string id="MenuExit">exit</string>
+</strings>
