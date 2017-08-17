@@ -66,24 +66,23 @@ class CalculatorView extends Ui.View {
     
     function format(number) {
     	if (number instanceof Number) {
-    		return number;
+    		return number.toString();
     	}
-    	var asLong = Math.round(number * 1000000).toLong();
-    	var intPart = number.toLong();
-    	var fracPart = asLong.abs() % 1000000;
-    	var fracStr = fracPart.format("%06d");
-    	var fracChrs = fracStr.toCharArray();
+    	
+    	var tmpStr = number.format("%19.6f");
+    	System.println("formatting " + number + " from " + tmpStr);
+    	var chrs = tmpStr.toCharArray();
     	var lastNonZero = -1;
-    	for (var i = 0; i < fracChrs.size(); i += 1) {
-    		if (!fracChrs[i].equals('0')) {
+    	for (var i = 0; i < chrs.size(); i += 1) {
+    		if (!chrs[i].equals('0')) {
     			lastNonZero = i;
     		}
     	}
-    	if (lastNonZero == -1) {
-    		return intPart.toString();
-    	} else {
-    		return intPart.toString() + "." + fracStr.substring(0, lastNonZero + 1);
-    	}	
+    	tmpStr = tmpStr.substring(0, lastNonZero + 1);
+    	if (tmpStr.substring(tmpStr.length() - 1, tmpStr.length()).equals(".")) {
+    		tmpStr = tmpStr.substring(0, tmpStr.length() - 1);
+    	}
+    	return tmpStr;
     }
 
     function addInputToStack() {
