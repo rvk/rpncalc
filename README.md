@@ -12,4 +12,4 @@ Lap key opens op menu, where you can find all the arithmetic and stack operation
 Rad/deg preference and exit are available from standard menu.
 
 PLEASE NOTE:
-Learn RPN before rating this app. If you do understand RPN and still notice usability issues, please contact me.
+Learn RPN before rating this app. If you do understand RPN and still notice usability issues, please contact me at rvk@iki.fi.
