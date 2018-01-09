@@ -12,6 +12,7 @@ class MainMenuDelegate extends Ui.MenuInputDelegate {
 	function onMenuItem(item) {
 		if (item == :exit) {
 			Ui.popView(Ui.SLIDE_IMMEDIATE);
+			Ui.popView(Ui.SLIDE_IMMEDIATE);
 		} else if (item == :angle) {
 			Ui.pushView(new Rez.Menus.AngleMenu(), self, Ui.SLIDE_IMMEDIATE);
 		} else if (item == :deg) {
